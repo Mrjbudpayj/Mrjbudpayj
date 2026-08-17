@@ -1,0 +1,35 @@
+{
+  "p_v_version": 1,
+  "subject_commit": "3b64a888c9541eabfdc528fb99a6de2f5dc5ac4d",
+  "a_root_supplied": "dfded8fb873e4b49c77d4be601699a7f1ef3b54e727e11e8e4ac446a834f82c1",
+  "a_root_independently_recomputed": false,
+  "manifest": {
+    "location": "supplied by independent reconstructor",
+    "bytes_length": 437,
+    "content_summary": "repo-manifest.json (provided by reconstructor); bytes recorded by reconstructor",
+    "note": "The replay actor recorded the manifest bytes as supplied but did not independently recompute sha256 for A_root in this record."
+  },
+  "predicates": [
+    {"id": "manifest_consistency", "result": "pass", "evidence": ["manifest (inline)", "https://github.com/Mrjbudpayj/Mrjbudpayj/commit/3b64a888c9541eabfdc528fb99a6de2f5dc5ac4d", "https://github.com/Mrjbudpayj/Mrjbudpayj/tree/3b64a888c9541eabfdc528fb99a6de2f5dc5ac4d"]},
+    {"id": "no_extra_files", "result": "pass", "evidence": ["https://github.com/Mrjbudpayj/Mrjbudpayj/tree/3b64a888c9541eabfdc528fb99a6de2f5dc5ac4d"]},
+    {"id": "README_integrity", "result": "pass", "evidence": ["https://raw.githubusercontent.com/Mrjbudpayj/Mrjbudpayj/3b64a888c9541eabfdc528fb99a6de2f5dc5ac4d/README.md"]},
+    {"id": "empty_docx_detect", "result": "pass", "evidence": ["https://raw.githubusercontent.com/Mrjbudpayj/Mrjbudpayj/3b64a888c9541eabfdc528fb99a6de2f5dc5ac4d/New%20Microsoft%20Word%20Document.docx"]},
+    {"id": "tool_exclusion", "result": "pass", "evidence": ["https://github.com/Mrjbudpayj/Mrjbudpayj/commit/c6f277ccdf3fd2d5f96e00c32acf14cb8aab01bb"]}
+  ],
+  "replay_status": "REPLAY PASS",
+  "p_v_status": "UNSIGNED",
+  "signing": {
+    "signing_identity": null,
+    "algorithm": null,
+    "public_key_id": null,
+    "signature": null,
+    "signature_verification_result": "unsigned"
+  },
+  "conformance": "NOT_ESTABLISHED",
+  "seal": "NOT_ISSUABLE",
+  "issued_by": {
+    "runner": "verification-runner (admitted agent record)",
+    "timestamp": "2026-08-17T00:00:00Z"
+  },
+  "notes": "A_root was supplied by the independent reconstructor and recorded here; the replay actor did not independently recompute sha256(manifest) for this record. README sha256 was recorded from the reconstructor's report; independent recomputation of content hashes is NOT_ESTABLISHED in this record."
+}

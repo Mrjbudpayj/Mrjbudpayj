@@ -1,0 +1,21 @@
+Replay log and determination
+
+Replay: COMPLETE
+Subject commit: 3b64a888c9541eabfdc528fb99a6de2f5dc5ac4d (pinned)
+Manifest bytes: supplied by independent reconstructor (repo-manifest.json), length reported 437 bytes
+A_root (supplied): dfded8fb873e4b49c77d4be601699a7f1ef3b54e727e11e8e4ac446a834f82c1
+A_root independently recomputed by replay actor: NO (NOT_ESTABLISHED)
+
+Predicate results (all PASS):
+- manifest_consistency: PASS
+- no_extra_files: PASS
+- README_integrity: PASS
+- empty_docx_detect: PASS
+- tool_exclusion: PASS
+
+P_V disposition: Record unsigned P_V (terminal for this replay phase). No signature performed. Conformance and Seal not established.
+
+Authoritative posture (per user determination):
+REPLAY PASS -> UNSIGNED P_V PREPARED -> [signature verification gate] -> P_V SIGNATURE VERIFIED -> [policy/conformance gate] -> CONFORMANCE -> [seal authority gate] -> SEAL
+
+User-supplied determination attached: The replay record is sufficient to advance the replay state but not to collapse epistemic boundaries. A_root verification must be explicitly recomputed to claim verification.
