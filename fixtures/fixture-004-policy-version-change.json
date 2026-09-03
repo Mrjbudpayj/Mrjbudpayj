@@ -1,0 +1,5 @@
+{
+  "fixture_id":"fixture-004-policy-version-change",
+  "input":{"intent":"TRANSFER","policy":{"version":"1.1","digest":"a5764e50f01f5b16e14c65fa0bf42ddc086b63740527de647d709da36a28f8d5"},"authority_valid":true,"balance":2000,"amount":750,"risk":"normal"},
+  "expected_outcome_label":"DENIED_POLICY_LIMIT"
+}

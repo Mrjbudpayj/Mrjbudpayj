@@ -1,0 +1,5 @@
+{
+  "fixture_id":"fixture-005-evidence-change",
+  "input":{"intent":"TRANSFER","policy":{"version":"1.0","digest":"2f2f40ed47e1ea1864bba10cac9103b9a2d649238633bc5852108cbf25ed3cc8"},"authority_valid":true,"balance":2000,"amount":500,"risk":"elevated"},
+  "expected_outcome_label":"DENIED_RISK"
+}
