@@ -1,0 +1,5 @@
+{
+  "version": "1.0",
+  "limits": {"transfer_max": 1000},
+  "mode": "standard"
+}

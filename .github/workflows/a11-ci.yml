@@ -1,0 +1,46 @@
+name: A11-1.0 Certification
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    tags: ['rc-*']
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install -e .
+      - name: RFC 8785 and policy tests
+        run: pytest -q tests/test_policy.py
+      - name: Reject oracle contamination in determination modules
+        run: '! grep -R "expected_outcome_label" --include="*.py" determination.py verifier.py'
+
+  certification:
+    if: github.event_name == 'push'
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install -e .
+      - run: python runner.py
+      - run: python verifier.py
+      - run: python render_rar.py
+      - name: Release gate
+        run: |
+          python - <<'PY'
+          import json,sys
+          s=json.load(open('observed-artifacts/summary.json'))
+          r=json.load(open('observed-artifacts/replay-summary.json'))
+          ok=len(s['fixtures'])==5 and r['pass'] and all(x['match'] for x in r['results'])
+          print('RELEASE_GATE=', 'PASS' if ok else 'BLOCKED')
+          sys.exit(0 if ok else 1)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: a11-1.0-certification-${{ github.sha }}
+          path: observed-artifacts/
