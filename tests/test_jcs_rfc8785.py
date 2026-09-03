@@ -16,8 +16,10 @@ def test_rfc8785_number_vectors(value, expected):
 
 def test_unicode_key_ordering():
     # RFC 8785 orders object property names by UTF-16 code units.
-    value = {"\ud834\udd1e": 1, "\ue000": 2}
-    assert jcs_canonicalize(value) == b'{"\\ud834\\udd1e":1,"\\ue000":2}'
+    # Use the actual Unicode scalar U+1D11E rather than an unpaired
+    # surrogate representation. RFC 8785/I-JSON rejects lone surrogates.
+    value = {"\U0001D11E": 1, "\ue000": 2}
+    assert jcs_canonicalize(value) == '{"\U0001D11E":1,"\ue000":2}'.encode("utf-8")
 
 
 def test_nonfinite_rejected():
