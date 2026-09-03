@@ -4,3 +4,6 @@ version = "0.1.0"
 description = "A11-1.0 certification harness"
 requires-python = ">=3.11"
 dependencies = ["rfc8785==0.1.4", "pytest==8.4.2", "PyYAML==6.0.2"]
+
+[tool.setuptools]
+packages = ["canonicalization"]
